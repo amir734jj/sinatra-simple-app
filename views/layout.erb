@@ -15,33 +15,37 @@
                     <a class="navbar-brand" href="/">Sinatra website</a>
                 </div>
                 <ul class="nav navbar-nav navbar-right">
-
-                  <% if defined?(user) %>
-                      <li>
-                        <a href="/logout">
-                          <span class="glyphicon glyphicon-user"></span>
-                          Logout</a>
-                      </li>
-                  <% else %>
-                      <li>
-                        <a href="/register">
-                          <span class="glyphicon glyphicon-user"></span>
-                          Sign Up</a>
-                      </li>
-                      <li>
-                        <a href="/login">
-                          <span class="glyphicon glyphicon-log-in"></span>
-                          Login</a>
-                      </li>
-
-                  <% end %>
-
+                    <% if defined?(user) %>
+                        <li>
+                            <a href="/logout">
+                                <span class="glyphicon glyphicon-user"></span>
+                                Logout
+                            </a>
+                        </li>
+                    <% else %>
+                        <li>
+                            <a href="/register">
+                                <span class="glyphicon glyphicon-user"></span>
+                                Sign Up
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/login">
+                                <span class="glyphicon glyphicon-log-in"></span>
+                                Login
+                            </a>
+                        </li>
+                    <% end %>
                 </ul>
             </div>
         </nav>
-
         <div class="container">
             <div class="jumbotron">
+                <% if defined?(message) %>
+                    <div class="alert alert-danger">
+                        <%= message %>
+                    </div>
+                <% end %>
                 <%= yield %>
             </div>
         </div>
